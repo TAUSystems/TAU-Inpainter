@@ -11,7 +11,7 @@ from warnings import warn
 
 import numpy as np
 
-from scipy.sparse import csc_array
+from scipy.sparse import csc_matrix
 from scipy.sparse import vstack as sp_vstack
 from scipy.sparse import eye as sp_eye
 from scipy.sparse.linalg import spsolve as sp_solve
@@ -133,7 +133,7 @@ class TotalCurvatureInpainter:
                     data.append(coeff)
                 m += 1
 
-        laplacian_jacobian = csc_array((data, (row_ind, col_ind)), shape=((image_shape[0] - 2) * (image_shape[1] - 2), image_shape[0] * image_shape[1]))
+        laplacian_jacobian = csc_matrix((data, (row_ind, col_ind)), shape=((image_shape[0] - 2) * (image_shape[1] - 2), image_shape[0] * image_shape[1]))
 
         # Finally, obtain the equations for d(sum(square(L)))/dZ == 0
         return 2 * laplacian_jacobian.T @ laplacian_jacobian
