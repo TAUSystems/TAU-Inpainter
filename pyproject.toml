@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "tau_inpainter"
+version = "0.1.0"
+description = "Algorithms to interpolate an area of an image."
+authors = ["Reinier van Mourik <reinier.vanmourik@tausystems.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+packages = [
+    { include = "tau_inpainter" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.4"
+scipy = "^1.13.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
